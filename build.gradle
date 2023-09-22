@@ -9,15 +9,15 @@ apply from: LOGSTASH_CORE_PATH + "/../rubyUtils.gradle"
 // ===========================================================================
 group                      'org.logstashplugins' // must match the package of the main plugin class
 version                    "${file("VERSION").text.trim()}" // read from required VERSION file
-description                = "Example Java filter implementation"
+description                = "Mask sensitive data filter plugin"
 pluginInfo.licenses        = ['Apache-2.0'] // list of SPDX license IDs
 pluginInfo.longDescription = "This gem is a Logstash plugin required to be installed on top of the Logstash core pipeline using \$LS_HOME/bin/logstash-plugin install gemname. This gem is not a stand-alone program"
-pluginInfo.authors         = ['Elasticsearch']
-pluginInfo.email           = ['info@elastic.co']
-pluginInfo.homepage        = "http://www.elastic.co/guide/en/logstash/current/index.html"
+pluginInfo.authors         = ['icovn']
+pluginInfo.email           = ['quanghuy.ico@gmail.com']
+pluginInfo.homepage        = "https://icovn.me"
 pluginInfo.pluginType      = "filter"
-pluginInfo.pluginClass     = "JavaFilterExample"
-pluginInfo.pluginName      = "java_filter_example" // must match the @LogstashPlugin annotation in the main plugin class
+pluginInfo.pluginClass     = "MaskSensitiveDataFilter"
+pluginInfo.pluginName      = "mask_sensitive_data_filter" // must match the @LogstashPlugin annotation in the main plugin class
 // ===========================================================================
 
 sourceCompatibility = 1.8
@@ -46,11 +46,13 @@ shadowJar {
 
 dependencies {
     implementation 'org.apache.commons:commons-lang3:3.7'
-    compileOnly 'org.apache.logging.log4j:log4j-api:2.17.0' // provided by Logstash
-    compileOnly 'org.apache.logging.log4j:log4j-core:2.17.0' // provided by Logstash
+    compileOnly 'org.apache.logging.log4j:log4j-api:2.17.1' // provided by Logstash
+    compileOnly 'org.apache.logging.log4j:log4j-core:2.17.1' // provided by Logstash
     implementation fileTree(dir: LOGSTASH_CORE_PATH, include: "build/libs/logstash-core*.jar")
 
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13.1'
+    testImplementation 'org.apache.logging.log4j:log4j-api:2.17.1'
+    testImplementation 'org.apache.logging.log4j:log4j-core:2.17.1'
     testImplementation 'org.jruby:jruby-complete:9.2.20.1'
 }
 
