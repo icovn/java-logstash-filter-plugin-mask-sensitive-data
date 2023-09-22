@@ -1,0 +1,59 @@
+HELP.md
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+*.DS_Store
+
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/build/
+
+### VS Code ###
+.vscode/
+
+### Logstash ###
+/.gradle/
+Gemfile
+gradle.properties
+/lib/
+logstash-filter-mask_sensitive_data_filter.gemspec
+/vendor/
+
+### CUSTOM ###
+*.log
+application-dev-*.properties
+application-dev-*.yml
+application-lab-*.properties
+application-lab-*.yml
+application-local-*.properties
+application-local-*.yml
+application-prod-*.properties
+application-prod-*.yml
+credentials.json
+dependency-reduced-pom.xml
+firebase-adminsdk-*.json
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+release.properties
+**/.mvn/**
+**/logs/**
+**/target/**
