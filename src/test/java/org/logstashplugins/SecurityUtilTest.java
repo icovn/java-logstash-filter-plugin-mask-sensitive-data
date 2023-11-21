@@ -58,7 +58,7 @@ public class SecurityUtilTest {
     public void maskSensitiveContainMultiplePatternsComplex() {
         String input = "Customer phone:0123456789, email=abc@gmail.com, id:9, has phone:0123456789";
         String patterns = "phone:,email=";
-        String expected = "Customer phone:***, email=***, id:9, has phone:****";
+        String expected = "Customer phone:***, email=***, id:9, has phone:***";
         assertEquals(expected, SecurityUtil.maskSensitiveMultiple(input, patterns));
     }
 }
