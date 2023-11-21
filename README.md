@@ -38,7 +38,7 @@ LOGSTASH_CORE_PATH=<target_folder>/logstash-core
 ```
 - Example
     ```
-    LOGSTASH_CORE_PATH=LOGSTASH_CORE_PATH=/Volumes/MacData/personal/logstash/logstash-core
+    LOGSTASH_CORE_PATH=/Volumes/MacData/personal/logstash/logstash-core
     ```
 
 ### Step 4: Update the Java plugin code
