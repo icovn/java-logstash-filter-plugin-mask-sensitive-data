@@ -13,9 +13,9 @@
 - pipeline.id: filebeat_test
   queue.type: persisted
   path.config: "/usr/share/logstash/config/test_filebeat.conf"
-- pipeline.id: java_test
-  queue.type: persisted
-  path.config: "/usr/share/logstash/config/test_java_filter.conf"
+#- pipeline.id: java_test
+#  queue.type: persisted
+#  path.config: "/usr/share/logstash/config/test_java_filter.conf"
 #
 # Available options:
 #
