@@ -1,0 +1,8 @@
+filebeat.inputs:
+  - type: log
+    enabled: true
+    paths:
+      - /usr/share/filebeat/test_log_pod.txt
+
+output.logstash:
+  hosts: ["192.168.0.72:5044"]

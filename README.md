@@ -101,6 +101,27 @@ output {
 }
 ```
 
+A test configuration file with log file input
+```
+input {
+  file {
+    path => "/Users/liam/_applications/logstash-8.11.1/test_log_pod.txt"
+    type => "log"
+    start_position => "beginning"
+    sincedb_path => "NULL"
+  }
+}
+filter {
+  mask_sensitive_data_filter {
+    source => "message"
+    pattern => "phone:,email=,mobilePhone="
+  }
+}
+output {
+  stdout { codec => rubydebug }
+}
+```
+
 Run test
 ```shell
 cd <logtash_binary>
@@ -111,6 +132,17 @@ bin/logstash -f /path/to/java_filter.conf
     cd /Volumes/MacData/application/logstash-8.10.2
     bin/logstash -f test_java_filter.conf
     ```
+
+Run test with Logstash docker
+```shell
+docker build -t icovn-logstash-customized:1.0 .
+docker run --rm -it -p 5044:5044 -v ./test/logstash/:/usr/share/logstash/config/ icovn-logstash-customized:1.0
+```
+
+Run test with Filebeat docker
+```shell
+docker run --rm -it --volume="$(pwd)/test/filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml:ro" --volume="$(pwd)/test/logstash/test_log_pod.txt:/usr/share/filebeat/test_log_pod.txt:rw" docker.elastic.co/beats/filebeat:8.11.3
+```
 
 # Reference
 - [How to write a Java filter plugin](https://www.elastic.co/guide/en/logstash/current/java-filter-plugin.html)

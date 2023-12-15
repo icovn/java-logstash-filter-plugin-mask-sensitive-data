@@ -35,7 +35,7 @@ HELP.md
 Gemfile
 gradle.properties
 /lib/
-logstash-filter-mask_sensitive_data_filter.gemspec
+logstash-filter-mask_sensitive_data_filter*
 /vendor/
 
 ### CUSTOM ###
